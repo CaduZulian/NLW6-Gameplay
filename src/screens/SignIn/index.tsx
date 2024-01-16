@@ -1,18 +1,19 @@
-import { Button, Image, Text, View } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { Image, Text, View } from "react-native";
 
-import { styles } from "./style";
+import { styles } from "./styles";
 
-import DiscordImg from "../../assets/discord.png";
+import DiscordSvg from "../../assets/discord.svg";
 import IllustrationImg from "../../assets/illustration.png";
 
 import { ButtonIcon } from "../../components";
 
-export const SignIn = () => {
+export const SignIn = ({ navigation }: any) => {
+  const handleSignIn = () => {
+    navigation.navigate("Home");
+  };
+
   return (
     <View style={styles.container}>
-      <StatusBar style="light" backgroundColor="transparent" translucent />
-
       <Image
         source={IllustrationImg}
         style={styles.image}
@@ -21,9 +22,8 @@ export const SignIn = () => {
 
       <View style={styles.content}>
         <Text style={styles.title}>
-          Organize {`\n`}
-          suas jogatinas {`\n`}
-          facilmente
+          Conecte-se e{`\n`}e organize suas {`\n`}
+          jogatinas
         </Text>
 
         <Text style={styles.subtitle}>
@@ -33,8 +33,8 @@ export const SignIn = () => {
 
         <ButtonIcon
           title="Entrar com Discord"
-          icon={DiscordImg}
-          activeOpacity={0.7}
+          icon={DiscordSvg}
+          onPress={handleSignIn}
         />
       </View>
     </View>
