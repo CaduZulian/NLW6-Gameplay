@@ -1,13 +1,13 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../global/styles/theme';
+import { StyleSheet } from "react-native";
+import { theme } from "../../global";
 
 export const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingHorizontal: 24,
-    marginTop: 27
+    marginTop: 27,
   },
   title: {
     fontFamily: theme.fonts.title700,
@@ -18,5 +18,5 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.text400,
     color: theme.colors.highlight,
     fontSize: 13,
-  }
+  },
 });

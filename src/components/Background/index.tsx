@@ -5,9 +5,9 @@ import { styles } from "./styles";
 
 import { theme } from "../../global";
 
-interface BackgroundProps  {
+interface BackgroundProps {
   children: React.ReactNode;
-  onLayout?: ((event: LayoutChangeEvent) => void) | undefined
+  onLayout?: ((event: LayoutChangeEvent) => void) | undefined;
 }
 
 export const Background = ({ children, ...rest }: BackgroundProps) => {

@@ -1,0 +1,9 @@
+node_modules
+assets
+coverage/
+.vscode
+.expo
+
+.eslintignore
+yarn.lock
+package-lock.json

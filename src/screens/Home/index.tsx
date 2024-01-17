@@ -1,19 +1,25 @@
 import { useState } from "react";
 import { View } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+import { NavigationProp } from "@react-navigation/native";
 
 import { styles } from "./styles";
 
 import {
   Appointment,
+  Background,
   ButtonAdd,
   CategorySelect,
   ListDivider,
   ListHeader,
   Profile,
 } from "../../components";
-import { FlatList } from "react-native-gesture-handler";
 
-export const Home = () => {
+interface HomeProps {
+  navigation: NavigationProp<any>;
+}
+
+export const Home = ({ navigation }: HomeProps) => {
   const [category, setCategory] = useState("");
 
   const appointments = [
@@ -36,12 +42,20 @@ export const Home = () => {
     categoryId === category ? setCategory("") : setCategory(categoryId);
   };
 
+  const handleAppointmentDetails = () => {
+    navigation.navigate("AppointmentDetails");
+  };
+
+  const handleAppointmentCreate = () => {
+    navigation.navigate("AppointmentCreate");
+  };
+
   return (
-    <View style={styles.container}>
+    <Background>
       <View style={styles.header}>
         <Profile />
 
-        <ButtonAdd />
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
 
       <CategorySelect
@@ -58,9 +72,11 @@ export const Home = () => {
           style={styles.matches}
           showsHorizontalScrollIndicator={false}
           ItemSeparatorComponent={() => <ListDivider />}
-          renderItem={({ item }) => <Appointment data={item} />}
+          renderItem={({ item }) => (
+            <Appointment data={item} onPress={handleAppointmentDetails} />
+          )}
         />
       </View>
-    </View>
+    </Background>
   );
 };
