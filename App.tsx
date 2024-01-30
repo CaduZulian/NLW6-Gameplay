@@ -1,3 +1,4 @@
+import 'expo-dev-client';
 import { useCallback } from "react";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
@@ -12,6 +13,8 @@ import { Background } from "./src/components";
 
 import { Routes } from "./src/routes";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { AuthProvider } from "./src/hooks/auth";
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -36,7 +39,14 @@ export default function App() {
       <Background onLayout={onLayoutRootView}>
         <StatusBar style="light" backgroundColor="transparent" translucent />
 
+    <AuthProvider>
+
         <Routes />
+    </AuthProvider>
+
+
+
+
       </Background>
     </GestureHandlerRootView>
   );

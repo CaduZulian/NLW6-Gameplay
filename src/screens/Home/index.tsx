@@ -63,7 +63,7 @@ export const Home = ({ navigation }: HomeProps) => {
         setCategory={handleCategorySelect}
       />
 
-      <View style={styles.content}>
+
         <ListHeader title="Partidas agendadas" subtitle="Total 6" />
 
         <FlatList
@@ -71,12 +71,13 @@ export const Home = ({ navigation }: HomeProps) => {
           keyExtractor={(item) => item.id}
           style={styles.matches}
           showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 69 }}
           ItemSeparatorComponent={() => <ListDivider />}
           renderItem={({ item }) => (
             <Appointment data={item} onPress={handleAppointmentDetails} />
           )}
         />
-      </View>
+
     </Background>
   );
 };
